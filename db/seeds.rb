@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+SourceProvider.create(name: 'Maryia Lisichonak', url: 'https://github.com/maryialis', address: 'Kuprevicha 3')
+SourceProvider.create(name: 'Aliaksandr Buhayeu', url: 'http://rr17.westeurope.cloudapp.azure.com', address: 'Kuprevicha 3V')
+

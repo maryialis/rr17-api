@@ -1,0 +1,2 @@
+class SourceProvider < ApplicationRecord
+end
