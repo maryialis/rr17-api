@@ -8,6 +8,7 @@
 
 SourceProvider.create(name: 'Priorbank', url: 'https://www.priorbank.by', address: 'ул. Казинца, 92/1')
 SourceProvider.create(name: 'Belarusbank', url: 'https://belarusbank.by/', address: 'ул. ПЛЕХАНОВА, 42')
+SourceProvider.create(name: 'Unknown', url: 'Unknown', address: 'Unknown', active: false)
 
 User.create(first_name: 'Maryia', last_name: 'Lisichonak', email: 'Maryia_lisichonak@epam.com', password: '1234')
 User.create(first_name: 'aliaksandr', last_name: 'buhayeu', email: 'Aliaksandr_Buhayeu@epam.com', password: '4321')

@@ -4,10 +4,15 @@ class SourceProviderController < ApplicationController
   end
 
   def index
-    render json: SourceProvider.all
+    render json: SourceProvider.where(active: true)
   end
   
   def show
-    render json: SourceProvider.find(params[:id])
+    rec = SourceProvider.find_by_id(params[:id])
+    if (rec && rec.active)
+      render json: SourceProvider.find(params[:id])
+    else
+      render plain: "Record not found"
+    end
   end
 end
