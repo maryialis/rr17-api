@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-SourceProvider.create(name: 'Maryia Lisichonak', url: 'https://github.com/maryialis', address: 'Kuprevicha 3')
-SourceProvider.create(name: 'Aliaksandr Buhayeu', url: 'http://rr17.westeurope.cloudapp.azure.com', address: 'Kuprevicha 3V')
+SourceProvider.create(name: 'Priorbank', url: 'https://www.priorbank.by', address: 'ул. Казинца, 92/1')
+SourceProvider.create(name: 'Belarusbank', url: 'https://belarusbank.by/', address: 'ул. ПЛЕХАНОВА, 42')
 
+User.create(first_name: 'Maryia', last_name: 'Lisichonak', email: 'Maryia_lisichonak@epam.com', password: '1234')
+User.create(first_name: 'aliaksandr', last_name: 'buhayeu', email: 'Aliaksandr_Buhayeu@epam.com', password: '4321')
+
+User.create(email: 'bot@tut.by', password: '1')
