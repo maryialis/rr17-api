@@ -14,3 +14,5 @@ User.create(first_name: 'aliaksandr', last_name: 'buhayeu', email: 'Aliaksandr_B
 User.create(email: 'bot@tut.by', password: '1')
 User.create(first_name: 'test', email: 'test@epam.com', password: '2')
 User.create(last_name: 'test', email: 'test@epam.com', password: '3')
+CourseResult.create(usd: 1.8580, eur: 2.0700, rur: 0.0324)
+CourseResult.create(usd: 1.8570, eur: 2.0780, rur: 0.0333)

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usd: 9.99
+  eur: 9.99
+  rur: 9.99
+  created_at: 2017-05-24 15:47:05
+
+two:
+  usd: 9.99
+  eur: 9.99
+  rur: 9.99
+  created_at: 2017-05-24 15:47:05
