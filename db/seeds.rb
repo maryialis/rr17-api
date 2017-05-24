@@ -11,5 +11,6 @@ SourceProvider.create(name: 'Belarusbank', url: 'https://belarusbank.by/', addre
 
 User.create(first_name: 'Maryia', last_name: 'Lisichonak', email: 'Maryia_lisichonak@epam.com', password: '1234')
 User.create(first_name: 'aliaksandr', last_name: 'buhayeu', email: 'Aliaksandr_Buhayeu@epam.com', password: '4321')
-
 User.create(email: 'bot@tut.by', password: '1')
+User.create(first_name: 'test', email: 'test@epam.com', password: '2')
+User.create(last_name: 'test', email: 'test@epam.com', password: '3')

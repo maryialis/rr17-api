@@ -11,17 +11,16 @@ class User < ApplicationRecord
   private
   def prepare
     email.downcase!
-    if (!first_name && !last_name)
+    if (first_name.nil? && last_name.nil?)
       self.first_name = (0...8).map { (65 + rand(26)).chr }.join
       self.last_name = (0...8).map { (65 + rand(26)).chr }.join
     end
-    puts "First name: #{first_name} Last name: #{last_name}"
-    if (first_name && last_name)
+    #puts "First name: #{first_name} Last name: #{last_name}"
+    if (first_name.nil? || last_name.nil?)
+      throw :abort
+    else
       first_name.capitalize!
       last_name.capitalize!
-      true
-    else
-      false
     end
   end
 end
