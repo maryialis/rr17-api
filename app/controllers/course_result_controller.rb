@@ -1,9 +1,10 @@
 class CourseResultController < ApplicationController
   def current
     render json: CourseResult.where(created_at: (Time.zone.now.beginning_of_day..Time.zone.now.end_of_day))
+    #render json: CourseResult.order(created_at: :desc).first
   end
 
   def history
-    render json: CourseResult.last(10).reverse
+    render json: CourseResult.order(created_at: :desc).limit(10)
   end
 end

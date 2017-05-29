@@ -10,7 +10,7 @@ class SourceProviderController < ApplicationController
   def show
     rec = SourceProvider.find_by_id(params[:id])
     if (rec && rec.active)
-      render json: SourceProvider.find(params[:id])
+      render json: rec
     else
       render plain: "Record not found"
     end
