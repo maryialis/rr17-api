@@ -1,3 +1,5 @@
+require 'logger'
+
 module Parser
   class BaseParser
     def parse(input)
@@ -6,6 +8,7 @@ module Parser
       rur = parse_rur(input)
       {parsed: true, result: {usd: usd, eur: eur, rur: rur}}
       rescue StandardError => e
+        @@logger.error(e.message)
         {parsed: false, error: e.message}
     end
     
@@ -22,6 +25,7 @@ module Parser
     def parse_impl(input)
       yield input
     end
+    @@logger = Logger.new('../../log/parser.log')
   end
   
   class BelarusParser < BaseParser
@@ -37,21 +41,21 @@ module Parser
     def parse_usd(input)
       parse_impl(input) do
         m = input.match(/\(1 USD\)\s*<\/td>\s*<td[^>]+>\s*(\d+.\d{4})\s*<\/td>/)
-        raise 'Failed to extract USD rate' if !m
+        raise 'Failed to extract Belarusbank\'s USD rate' if !m
         m[1]
        end
     end
     def parse_eur(input)
       parse_impl(input) do
         m = input.match(/\(1 EUR\)\s*<\/td>\s*<td[^>]+>\s*(\d+.\d{4})\s*<\/td>/)
-        raise 'Failed to extract EUR rate' if !m
+        raise 'Failed to extract Belarusbank\'s EUR rate' if !m
         m[1]
        end
     end
     def parse_rur(input)
       parse_impl(input) do
         m = input.match(/\(100 RUB\)\s*<\/td>\s*<td[^>]+>\s*(\d+.\d{4})\s*<\/td>/)
-        raise 'Failed to extract RUR rate' if !m
+        raise 'Failed to extract Belarusbank\'s RUR rate' if !m
         (m[1].to_f / 100).round(4)
       end
     end
@@ -64,21 +68,21 @@ module Parser
     def parse_usd(input)
       parse_impl(input) do
         m = input.match(/<strong>USD<\/strong><\/span>\s*<\/div>\s*<\/td>\s*<td class="units_column">1<\/td>\s*<td>\s*<span[^>]+>(\d+.\d{2})<\/span>/)
-        raise 'Failed to extract USD rate' if !m
+        raise 'Failed to extract Technobank\'s USD rate' if !m
         m[1]
        end
     end
     def parse_eur(input)
       parse_impl(input) do
         m = input.match(/<strong>EUR<\/strong><\/span>\s*<\/div>\s*<\/td>\s*<td class="units_column">1<\/td>\s*<td>\s*<span[^>]+>(\d+.\d{2})<\/span>/)
-        raise 'Failed to extract EUR rate' if !m
+        raise 'Failed to extract Technobank\'s EUR rate' if !m
         m[1]
        end
     end
     def parse_rur(input)
       parse_impl(input) do
         m = input.match(/<strong>RUB<\/strong><\/span>\s*<\/div>\s*<\/td>\s*<td class="units_column">100<\/td>\s*<td>\s*<span[^>]+>(\d+.\d{2})<\/span>/)
-        raise 'Failed to extract RUR rate' if !m
+        raise 'Failed to extract Technobank\'s RUR rate' if !m
         (m[1].to_f / 100).round(4)
       end
     end
