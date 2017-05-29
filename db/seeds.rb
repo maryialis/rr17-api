@@ -15,5 +15,6 @@ User.create(first_name: 'aliaksandr', last_name: 'buhayeu', email: 'Aliaksandr_B
 User.create(email: 'bot@tut.by', password: '111111')
 User.create(first_name: 'test', email: 'test@epam.com', password: '222222')
 User.create(last_name: 'test', email: 'test@epam.com', password: '333333')
-CourseResult.create(usd: 1.8580, eur: 2.0700, rur: 0.0324)
-CourseResult.create(usd: 1.8570, eur: 2.0780, rur: 0.0333)
+
+CourseResult.create(usd: 1.8580, eur: 2.0700, rur: 0.0324, source_provider_id: 1)
+CourseResult.create(usd: 1.8570, eur: 2.0780, rur: 0.0333, source_provider_id: 2)

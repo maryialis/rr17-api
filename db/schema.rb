@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524132019) do
+ActiveRecord::Schema.define(version: 20170525084714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20170524132019) do
     t.decimal "rur"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "source_provider_id"
+    t.index ["source_provider_id"], name: "index_course_results_on_source_provider_id"
   end
 
   create_table "source_providers", force: :cascade do |t|
@@ -44,4 +46,5 @@ ActiveRecord::Schema.define(version: 20170524132019) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "course_results", "source_providers"
 end
