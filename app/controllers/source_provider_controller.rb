@@ -15,4 +15,10 @@ class SourceProviderController < ApplicationController
       render plain: "Record not found"
     end
   end
+  
+  def create
+    SourceProvider.create!(JSON.parse(request.body.read))
+    rescue ActiveRecord::RecordInvalid => invalid
+      render json: {errors: invalid.record.errors, status: 400}, status: 400
+  end
 end
