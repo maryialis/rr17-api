@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529103320) do
+ActiveRecord::Schema.define(version: 20170529155717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20170529103320) do
     t.datetime "updated_at", null: false
     t.bigint "source_provider_id"
     t.index ["source_provider_id"], name: "index_course_results_on_source_provider_id"
+  end
+
+  create_table "source_parsers", force: :cascade do |t|
+    t.string "parser_name"
+    t.string "url_pattern"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "source_providers", force: :cascade do |t|
