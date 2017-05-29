@@ -3,6 +3,9 @@ class User < ApplicationRecord
   validates :email, presence:true, uniqueness:{case_sensitive: false}, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :password, presence:true, length: {in: REASONABLE_PASSWORD_LIMIT}
   validate :prepare_names
+  has_many :source_providers
+  
+  before_destroy :deactivate_source_providers
   
   def full_name
     first_name + ' ' + last_name
@@ -11,6 +14,10 @@ class User < ApplicationRecord
   before_save :prepare
 
   private
+  
+  def deactivate_source_providers
+    SourceProvider.where(author: id).update_all('active = false, author = NULL')
+  end
   
   def prepare_names
     if (!first_name.present? && !last_name.present?)
