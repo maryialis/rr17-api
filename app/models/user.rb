@@ -16,7 +16,7 @@ class User < ApplicationRecord
   private
   
   def deactivate_source_providers
-    SourceProvider.where(author: id).update_all('active = false, author = NULL')
+    SourceProvider.where(author: id).update_all('active = false, user_id = NULL')
   end
   
   def prepare_names
