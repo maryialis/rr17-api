@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529155717) do
+ActiveRecord::Schema.define(version: 20170530132013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170529155717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active", default: true
-    t.integer "author"
+    t.integer "user_id"
     t.index ["name"], name: "index_source_providers_on_name", unique: true
     t.index ["url"], name: "index_source_providers_on_url", unique: true
   end
@@ -55,5 +55,5 @@ ActiveRecord::Schema.define(version: 20170529155717) do
   end
 
   add_foreign_key "course_results", "source_providers"
-  add_foreign_key "source_providers", "users", column: "author"
+  add_foreign_key "source_providers", "users"
 end
