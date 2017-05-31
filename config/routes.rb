@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'source_provider#version'
-  get '/source_providers', to: 'source_provider#index'
-  get '/source_providers/:id', to: 'source_provider#show'
-  post '/source_providers', to: 'source_provider#create'
-  get '/users', to: 'user#index'
-  get '/users/:id', to: 'user#show'
-  post '/users', to: 'user#create'
+
+  root to: 'source_providers#home'
+  resources 'source_providers'
+  resources 'users'
+  resources 'source_parsers'
   get '/courses', to: 'course_result#current'
   get '/courses/history', to: 'course_result#history'
 
