@@ -9,7 +9,6 @@ class SourceProvidersController < ApplicationController
   
   def create
     rec = SourceProvider.new(source_provider_params)
-    rec.author = params[:author] if params[:author]
     if rec.save
       render json: rec
     else
@@ -29,7 +28,6 @@ class SourceProvidersController < ApplicationController
   def update
     rec = SourceProvider.find_by_id(params[:id])
     rec.assign_attributes(source_provider_params)
-    rec.author = params[:author] if params[:author]
     if rec.save
       render json: rec
     else
@@ -44,6 +42,6 @@ class SourceProvidersController < ApplicationController
   
   private
   def source_provider_params
-    params.require(:source_provider).permit(:name, :url, :address, :active, :author, :user_id)
+    params.require(:source_provider).permit(:name, :url, :address, :active, :user_id)
   end
 end
