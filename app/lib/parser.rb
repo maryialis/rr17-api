@@ -25,7 +25,7 @@ module Parser
     def parse_impl(input)
       yield input
     end
-    @@logger = Logger.new('../../log/parser.log')
+    @@logger = Logger.new('log/parser.log')
   end
   
   class BelarusParser < BaseParser
