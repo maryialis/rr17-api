@@ -64,7 +64,7 @@ module V1
         parser = instantiate_parser(spr)
         SourceProvidersController.delay.parse_and_process(parser, spr) if parser
       end
-      render json: {scheduled: Time.now, status: 203}, status: :accepted
+      render json: {scheduled: Time.now, status: 203}, status: 203
       rescue StandardError => e
         render json: {errors: e.message, status: 400}, status: 400
         return

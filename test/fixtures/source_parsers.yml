@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  parser_name: MyString
-  url_pattern: MyString
+  parser_name: BelarusParser
+  url_pattern: https://belarusbank.by/?.*?
+  id: 1
 
-two:
-  parser_name: MyString
-  url_pattern: MyString
+#two:
+#  parser_name: MyString
+#  url_pattern: MyString

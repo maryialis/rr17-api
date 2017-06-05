@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  url: MyString
-  address: 
-  last_sync_at: 
-  created_at: 
+  name: BelarusBank
+  url: https://belarusbank.by
+  address: MyString10
+  last_sync_at: 2017-05-19 18:12:08
+  created_at: 2017-05-19 18:12:08
   updated_at: 2017-05-19 18:12:08
 
 two:
-  name: MyString
-  url: MyString
-  address: 
-  last_sync_at: 
-  created_at: 
+  name: MyString2
+  url: MyString2
+  address: MyString2
+  last_sync_at: 2017-05-19 18:12:08
+  created_at: 2017-05-19 18:12:08
   updated_at: 2017-05-19 18:12:08

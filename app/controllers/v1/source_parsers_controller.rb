@@ -6,12 +6,13 @@ module V1
     end
 
     def show
-      rec = SourceParser.find_by_id(params[:id])
-      if rec
-        render json: rec
-      else
-        render json: {errors: "SourceParser not found", status: 400}, status: 400
-      end
+      render json: params
+      #rec = SourceParser.find_by_id(params[:id])
+      #if rec
+      #  render json: rec
+      #else
+      #  render json: {errors: "SourceParser not found", status: 400}, status: 400
+     #end
     end
 
     def create
