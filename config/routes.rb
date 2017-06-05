@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources 'source_parsers'
     get '/courses', to: 'course_results#current'
     get '/courses/history', to: 'course_results#history'
+    post '/login', to: "sessions#create"  
+
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

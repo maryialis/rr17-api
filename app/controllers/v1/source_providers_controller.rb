@@ -3,6 +3,7 @@ require 'delayed_job'
 module V1
 
   class SourceProvidersController < ApiBaseController
+    before_action :authenticate, only: [:create, :update, :destroy]
     def home
       render json: {provider: "rr17-api", version: "1"}
     end

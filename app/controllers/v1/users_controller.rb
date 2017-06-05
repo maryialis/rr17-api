@@ -1,6 +1,7 @@
 module V1
 
   class UsersController < ApiBaseController
+    before_action :authenticate, only: [:create, :update, :destroy]
     def index
       render json: User.all
     end
