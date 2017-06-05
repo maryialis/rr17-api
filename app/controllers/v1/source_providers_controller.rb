@@ -14,10 +14,15 @@ module V1
     
     def create
       rec = SourceProvider.new(source_provider_params)
-      if rec.save
-        render json: rec
+      rec.user_id ||= current_user.id
+      if rec.user_id == current_user.id
+        if rec.save
+          render json: rec
+        else
+          render json: {errors: rec.errors, status: 400}, status: 400
+        end
       else
-        render json: {errors: rec.errors, status: 400}, status: 400
+        render json: {errors: "Unauthorized to create source provider", status: 401}, status: 401
       end
     end
     
@@ -32,17 +37,27 @@ module V1
     
     def update
       rec = SourceProvider.find_by_id(params[:id])
-      rec.assign_attributes(source_provider_params)
-      if rec.save
-        render json: rec
+      if (rec.user_id == current_user.id)
+        rec.assign_attributes(source_provider_params)
+        if rec.save
+          render json: rec
+        else
+          render json: {errors: rec.errors, status: 400}, status: 400
+        end
       else
-        render json: {errors: rec.errors, status: 400}, status: 400
+        render json: {errors: "Unauthorized to update source provider", status: 401}, status: 401
       end
     end
     
     def destroy
       rec = SourceProvider.find_by_id(params[:id])
-      rec.destroy if rec
+      if rec
+        if rec.user_id == current_user.id
+          rec.destroy
+        else
+          render json: {errors: "Unauthorized to destroy source provider", status: 401}, status: 401
+        end
+      end
     end
     
     def parse_now
