@@ -1,5 +1,3 @@
-require 'delayed_job'
-
 module V1
 
   class SourceProvidersController < ApiBaseController
@@ -78,7 +76,7 @@ module V1
     def parse_all
       SourceProvider.where(active: true).each do |spr|
         parser = instantiate_parser(spr)
-        SourceProvidersController.delay.parse_and_process(parser, spr) if parser
+        ApplicationJob.perform_later(parser.class.name, spr.id) if parser
       end
       render json: {scheduled: Time.now, status: 203}, status: 203
       rescue StandardError => e
