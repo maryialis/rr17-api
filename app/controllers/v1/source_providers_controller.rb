@@ -35,7 +35,7 @@ module V1
     
     def update
       rec = SourceProvider.find_by_id(params[:id])
-      if (rec.user_id == current_user.id)
+      if (rec && rec.user_id == current_user.id)
         rec.assign_attributes(source_provider_params)
         if rec.save
           render json: rec
