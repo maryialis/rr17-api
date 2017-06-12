@@ -1,7 +1,6 @@
 module V1
   class SessionsController < ApiBaseController
-    skip_before_action :authenticate
-
+    skip_before_action :authenticate, raise: false
     def create
       user = User.find_by(email: auth_params[:email])
       if (user.password == auth_params[:password])
