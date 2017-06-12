@@ -1,3 +1,5 @@
+module V1
+
 class ApiBaseController < ApplicationController
   
   def logged_in?
@@ -31,4 +33,6 @@ class ApiBaseController < ApplicationController
   def auth_present?
     !!request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first
   end
+end
+
 end
