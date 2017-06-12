@@ -32,6 +32,6 @@ module Rr17Api
     
     config.active_job.queue_adapter = :delayed_job
     
-    config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << "#{Rails.root}/lib/rr17-api"
   end
 end

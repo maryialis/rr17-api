@@ -4,7 +4,7 @@ module V1
     def create
       user = User.find_by(email: auth_params[:email])
       if (user.password == auth_params[:password])
-        jwt = Auth.issue({user: user.id})
+        jwt = Auth.new(Rails.application.secrets.secret_key_base).issue({ :email => auth_params[:email], :password => auth_params[:password] })
         render json: {jwt: jwt}
       else
       end

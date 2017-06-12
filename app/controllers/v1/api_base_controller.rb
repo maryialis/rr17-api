@@ -27,7 +27,7 @@ class ApiBaseController < ApplicationController
   end
   
   def auth
-    Auth.decode(token)
+    Auth.new(Rails.application.secrets.secret_key_base).decode(token)
   end
   
   def auth_present?
