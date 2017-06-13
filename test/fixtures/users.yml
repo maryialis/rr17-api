@@ -1,12 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  password: MyString
+  first_name: Maryia
+  last_name: Lisichonak
+  email: maryia_lisichonak@epam.com
+  password: 123456
   created_at: 2017-05-24 12:13:45
   updated_at: 2017-05-24 12:13:45
+  id: 1
 
 two:
   first_name: MyString
@@ -15,3 +16,5 @@ two:
   password: MyString
   created_at: 2017-05-24 12:13:45
   updated_at: 2017-05-24 12:13:45
+  id: 2
+  

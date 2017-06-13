@@ -12,7 +12,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post v1_users_url, params: { user: { first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123456' } }, as: :json
+      post v1_users_url, headers: { Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcnlpYV9saXNpY2hvbmFrQGVwYW0uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.d-MPNy5VLKcw8e_OoWetx2GZHsOSFTs14asKFwBPk20"}, params: { user: { first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123456' } }, as: :json
     end
   end
 
@@ -22,13 +22,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch v1_user_url(@user), params: { user: { first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123456' } }, as: :json
+    patch v1_user_url(@user), headers: { Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcnlpYV9saXNpY2hvbmFrQGVwYW0uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.d-MPNy5VLKcw8e_OoWetx2GZHsOSFTs14asKFwBPk20"}, params: { user: { first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123456' } }, as: :json
     assert_response 200
   end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do
-      delete v1_user_url(@user), as: :json
+      delete v1_user_url(@user), headers: { Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcnlpYV9saXNpY2hvbmFrQGVwYW0uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.d-MPNy5VLKcw8e_OoWetx2GZHsOSFTs14asKFwBPk20"}, as: :json
     end
   end
 

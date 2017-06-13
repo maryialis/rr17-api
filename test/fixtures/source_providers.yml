@@ -7,6 +7,8 @@ one:
   last_sync_at: 2017-05-19 18:12:08
   created_at: 2017-05-19 18:12:08
   updated_at: 2017-05-19 18:12:08
+  id: 1
+  user_id: 1
 
 two:
   name: MyString2
@@ -15,3 +17,4 @@ two:
   last_sync_at: 2017-05-19 18:12:08
   created_at: 2017-05-19 18:12:08
   updated_at: 2017-05-19 18:12:08
+  id: 2
