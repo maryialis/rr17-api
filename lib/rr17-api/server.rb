@@ -13,14 +13,14 @@ configure :test do
   $auth_secret = YAML.load_file('../../config/secrets.yml')['test']['secret_key_base']
 end
 
-get '/' do  
-content_type :json
-  { :provider => 'rr17-api', :version => '1' }.to_json
+get '/' do
+  content_type :json
+  { provider: 'rr17-api', version: '1' }.to_json
 end
 
-post '/login' do  
+post '/login' do
   @body = JSON.parse(request.body.read)
-  @jwt = Auth.new($auth_secret).issue({ :email => @body['auth']['email'], :password => @body['auth']['password'] })
+  @jwt = Auth.new($auth_secret).issue({ email: @body['auth']['email'], password: @body['auth']['password'] })
   content_type :json
-    { :jwt => @jwt}.to_json
+  { jwt: @jwt }.to_json
 end
