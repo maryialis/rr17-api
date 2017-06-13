@@ -8,7 +8,7 @@ class ApiBaseController < ApplicationController
   
   def current_user
     if auth_present?
-      user = User.find(auth["user"])
+      user = User.where(email: auth['email'], password: auth['password'])
       if user
         @current_user ||= user
       end
