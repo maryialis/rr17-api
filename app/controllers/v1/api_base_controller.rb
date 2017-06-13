@@ -10,7 +10,7 @@ class ApiBaseController < ApplicationController
     if auth_present?
       user = User.where(email: auth['email'], password: auth['password'])
       if user
-        @current_user ||= user
+        @current_user ||= user.first
       end
     end
   end
