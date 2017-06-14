@@ -18,6 +18,10 @@ get '/' do
   { provider: 'rr17-api', version: '1' }.to_json
 end
 
+get %r{/docs/.*} do
+  send_file '../../data/docs.html'
+end
+
 post '/login' do
   @body = JSON.parse(request.body.read)
   @jwt = Auth.new($auth_secret).issue({ email: @body['auth']['email'], password: @body['auth']['password'] })

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :v1 do
-    root to: 'source_providers#home'
+    # root to: 'source_providers#home'
     resources 'source_providers'
     post 'source_providers/:id/start_now', to: 'source_providers#parse_now'
     post 'source_providers/parse_all', to: 'source_providers#parse_all'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources 'source_parsers'
     get '/courses', to: 'course_results#current'
     get '/courses/history', to: 'course_results#history'
-    post '/login', to: "sessions#create"  
+    # post '/login', to: "sessions#create"  
 
   end
 

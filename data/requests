@@ -1,0 +1,4 @@
+curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcnlpYV9saXNpY2hvbmFrQGVwYW0uY29tIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.d-MPNy5VLKcw8e_OoWetx2GZHsOSFTs14asKFwBPk20" -d '{"url_pattern":"https://belarusbank.by/?.*?"}' -X PUT http://localhost:3000/v1/source_parsers/1
+
+curl -H "Content-Type: application/json"  -X  POST -d '{"auth":{"email":"maryia_lisichonak@epam.com", "password": "123456"}}' http://localhost:3000/v1/login
+

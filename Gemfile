@@ -28,6 +28,7 @@ gem 'puma', '~> 3.7'
 gem 'delayed_job_active_record'
 gem 'jwt'
 gem 'sinatra'
+gem 'rack-reverse-proxy'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
