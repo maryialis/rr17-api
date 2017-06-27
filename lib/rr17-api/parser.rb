@@ -7,7 +7,7 @@ module Parser
     def initialize
       @logger = Logger.new("#{Rails.root}/log/parser.log")
     end
-  
+
     def parse(input)
       usd = parse_usd(input)
       eur = parse_eur(input)
@@ -41,7 +41,9 @@ module Parser
   class BelarusParser < BaseParser
     def parse_usd(input)
       parse_impl(input) do
-        m = input.match(%r{\(1 USD\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>})
+        m = input.match(
+          %r{\(1 USD\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>}
+        )
         raise 'Failed to extract Belarusbank\'s USD rate' unless m
         m[1]
       end
@@ -49,7 +51,9 @@ module Parser
 
     def parse_eur(input)
       parse_impl(input) do
-        m = input.match(%r{\(1 EUR\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>})
+        m = input.match(
+          %r{\(1 EUR\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>}
+        )
         raise 'Failed to extract Belarusbank\'s EUR rate' unless m
         m[1]
       end
@@ -57,7 +61,9 @@ module Parser
 
     def parse_rur(input)
       parse_impl(input) do
-        m = input.match(%r{\(100 RUB\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>})
+        m = input.match(
+          %r{\(100 RUB\)\s*</td>\s*<td[^>]+>\s*(\d+.\d{4})\s*</td>}
+        )
         raise 'Failed to extract Belarusbank\'s RUR rate' unless m
         (m[1].to_f / 100).round(4)
       end
